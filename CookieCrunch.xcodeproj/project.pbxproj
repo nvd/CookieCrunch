@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		6283B2881B44A09200E9E452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6283B2871B44A09200E9E452 /* AppDelegate.swift */; };
-		6283B28A1B44A09200E9E452 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2891B44A09200E9E452 /* GameScene.sks */; };
 		6283B28C1B44A09200E9E452 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6283B28B1B44A09200E9E452 /* GameScene.swift */; };
 		6283B28E1B44A09200E9E452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6283B28D1B44A09200E9E452 /* GameViewController.swift */; };
 		6283B2911B44A09200E9E452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6283B28F1B44A09200E9E452 /* Main.storyboard */; };
 		6283B2931B44A09200E9E452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2921B44A09200E9E452 /* Images.xcassets */; };
 		6283B2961B44A09200E9E452 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2941B44A09200E9E452 /* LaunchScreen.xib */; };
 		6283B2A21B44A09200E9E452 /* CookieCrunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6283B2A11B44A09200E9E452 /* CookieCrunchTests.swift */; };
+		6283B2AC1B44A2E800E9E452 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2AB1B44A2E800E9E452 /* Sprites.atlas */; };
+		6283B2B11B44A49800E9E452 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2AD1B44A49800E9E452 /* Background@2x.png */; };
+		6283B2B21B44A49800E9E452 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2AE1B44A49800E9E452 /* Button@2x.png */; };
+		6283B2B31B44A49800E9E452 /* GameOver@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2AF1B44A49800E9E452 /* GameOver@2x.png */; };
+		6283B2B41B44A49800E9E452 /* LevelComplete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6283B2B01B44A49800E9E452 /* LevelComplete@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +35,6 @@
 		6283B2821B44A09200E9E452 /* CookieCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6283B2861B44A09200E9E452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6283B2871B44A09200E9E452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6283B2891B44A09200E9E452 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		6283B28B1B44A09200E9E452 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6283B28D1B44A09200E9E452 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6283B2901B44A09200E9E452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +43,11 @@
 		6283B29B1B44A09200E9E452 /* CookieCrunchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieCrunchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6283B2A01B44A09200E9E452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6283B2A11B44A09200E9E452 /* CookieCrunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieCrunchTests.swift; sourceTree = "<group>"; };
+		6283B2AB1B44A2E800E9E452 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		6283B2AD1B44A49800E9E452 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		6283B2AE1B44A49800E9E452 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
+		6283B2AF1B44A49800E9E452 /* GameOver@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameOver@2x.png"; sourceTree = "<group>"; };
+		6283B2B01B44A49800E9E452 /* LevelComplete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelComplete@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +90,15 @@
 			isa = PBXGroup;
 			children = (
 				6283B2871B44A09200E9E452 /* AppDelegate.swift */,
-				6283B2891B44A09200E9E452 /* GameScene.sks */,
 				6283B28B1B44A09200E9E452 /* GameScene.swift */,
 				6283B28D1B44A09200E9E452 /* GameViewController.swift */,
 				6283B28F1B44A09200E9E452 /* Main.storyboard */,
 				6283B2921B44A09200E9E452 /* Images.xcassets */,
+				6283B2AD1B44A49800E9E452 /* Background@2x.png */,
+				6283B2AE1B44A49800E9E452 /* Button@2x.png */,
+				6283B2AF1B44A49800E9E452 /* GameOver@2x.png */,
+				6283B2B01B44A49800E9E452 /* LevelComplete@2x.png */,
+				6283B2AB1B44A2E800E9E452 /* Sprites.atlas */,
 				6283B2941B44A09200E9E452 /* LaunchScreen.xib */,
 				6283B2851B44A09200E9E452 /* Supporting Files */,
 			);
@@ -198,10 +210,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6283B2B11B44A49800E9E452 /* Background@2x.png in Resources */,
 				6283B2961B44A09200E9E452 /* LaunchScreen.xib in Resources */,
+				6283B2B31B44A49800E9E452 /* GameOver@2x.png in Resources */,
 				6283B2931B44A09200E9E452 /* Images.xcassets in Resources */,
-				6283B28A1B44A09200E9E452 /* GameScene.sks in Resources */,
+				6283B2B41B44A49800E9E452 /* LevelComplete@2x.png in Resources */,
 				6283B2911B44A09200E9E452 /* Main.storyboard in Resources */,
+				6283B2AC1B44A2E800E9E452 /* Sprites.atlas in Resources */,
+				6283B2B21B44A49800E9E452 /* Button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
