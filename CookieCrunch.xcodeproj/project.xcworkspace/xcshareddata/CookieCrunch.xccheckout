@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EED01FA1-735E-4792-B3C8-27566E88BE6C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85ACC0B27E54EC812DF760CFE7668BDF392ED370</key>
+		<string>github.com:nvd/CookieCrunch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CookieCrunch.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85ACC0B27E54EC812DF760CFE7668BDF392ED370</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:nvd/CookieCrunch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85ACC0B27E54EC812DF760CFE7668BDF392ED370</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85ACC0B27E54EC812DF760CFE7668BDF392ED370</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CookieCrunch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
