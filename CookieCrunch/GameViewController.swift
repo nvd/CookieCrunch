@@ -30,6 +30,8 @@ class GameViewController: UIViewController {
 
         // Present the scene.
         skView.presentScene(scene)
+        
+        beginGame()
     }
 
     func beginGame() {
