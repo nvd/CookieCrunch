@@ -1,11 +1,3 @@
-//
-//  Array2D.swift
-//  CookieCrunch
-//
-//  Created by Naveed Siddiqui on 7/07/2015.
-//  Copyright (c) 2015 10eighteen. All rights reserved.
-//
-
 struct Array2D<T> {
     let columns: Int
     let rows: Int

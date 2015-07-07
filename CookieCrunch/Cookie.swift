@@ -1,11 +1,3 @@
-//
-//  Cookie.swift
-//  CookieCrunch
-//
-//  Created by Naveed Siddiqui on 2/07/2015.
-//  Copyright (c) 2015 10eighteen. All rights reserved.
-//
-
 import SpriteKit
 
 enum CookieType: Int, Printable {
