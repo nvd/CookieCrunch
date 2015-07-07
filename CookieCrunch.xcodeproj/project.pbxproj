@@ -22,6 +22,7 @@
 		6283B2B61B44EAD500E9E452 /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6283B2B51B44EAD500E9E452 /* Cookie.swift */; };
 		62CEF10E1B4B8A23006D387C /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEF10D1B4B8A23006D387C /* Array2D.swift */; };
 		62CEF1101B4B8C8B006D387C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEF10F1B4B8C8B006D387C /* Level.swift */; };
+		62CEF1121B4BA8B6006D387C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 62CEF1111B4BA8B6006D387C /* Levels */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		6283B2B51B44EAD500E9E452 /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		62CEF10D1B4B8A23006D387C /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		62CEF10F1B4B8C8B006D387C /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		62CEF1111B4BA8B6006D387C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,16 +97,17 @@
 		6283B2841B44A09200E9E452 /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
-				6283B2871B44A09200E9E452 /* AppDelegate.swift */,
-				6283B28B1B44A09200E9E452 /* GameScene.swift */,
-				6283B28D1B44A09200E9E452 /* GameViewController.swift */,
-				6283B28F1B44A09200E9E452 /* Main.storyboard */,
 				6283B2921B44A09200E9E452 /* Images.xcassets */,
+				62CEF1111B4BA8B6006D387C /* Levels */,
+				6283B2AB1B44A2E800E9E452 /* Sprites.atlas */,
+				6283B2871B44A09200E9E452 /* AppDelegate.swift */,
 				6283B2AD1B44A49800E9E452 /* Background@2x.png */,
 				6283B2AE1B44A49800E9E452 /* Button@2x.png */,
 				6283B2AF1B44A49800E9E452 /* GameOver@2x.png */,
 				6283B2B01B44A49800E9E452 /* LevelComplete@2x.png */,
-				6283B2AB1B44A2E800E9E452 /* Sprites.atlas */,
+				6283B28B1B44A09200E9E452 /* GameScene.swift */,
+				6283B28D1B44A09200E9E452 /* GameViewController.swift */,
+				6283B28F1B44A09200E9E452 /* Main.storyboard */,
 				6283B2941B44A09200E9E452 /* LaunchScreen.xib */,
 				6283B2851B44A09200E9E452 /* Supporting Files */,
 				6283B2B51B44EAD500E9E452 /* Cookie.swift */,
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CEF1121B4BA8B6006D387C /* Levels in Resources */,
 				6283B2B11B44A49800E9E452 /* Background@2x.png in Resources */,
 				6283B2961B44A09200E9E452 /* LaunchScreen.xib in Resources */,
 				6283B2B31B44A49800E9E452 /* GameOver@2x.png in Resources */,
