@@ -33,7 +33,7 @@ enum CookieType: Int {
 
 }
 
-class Cookie {
+class Cookie: Printable {
     var column: Int
     var row: Int
     let cookieType: CookieType
@@ -43,5 +43,9 @@ class Cookie {
         self.column = column
         self.row = row
         self.cookieType = cookieType
+    }
+    
+    var description: String {
+        return "type:\(cookieType) square:(\(column),\(row))"
     }
 }
