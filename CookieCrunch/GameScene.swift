@@ -10,10 +10,14 @@ class GameScene: SKScene {
     let tilesLayer = SKNode()
     let cookiesLayer = SKNode()
 
+    private
+    var swipeFromColumn: Int?
+    var swipeFromRow: Int?
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
-    
+
     override init(size: CGSize) {
         super.init(size: size)
 
@@ -33,6 +37,9 @@ class GameScene: SKScene {
         
         cookiesLayer.position = layerPosition
         gameLayer.addChild(cookiesLayer)
+
+        swipeFromColumn = nil
+        swipeFromRow = nil
     }
 
     func addTiles() {
@@ -46,7 +53,7 @@ class GameScene: SKScene {
             }
         }
     }
-    
+
     func addSpritesForCookies(cookies: Set<Cookie>) {
         for cookie in cookies {
             let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
@@ -61,4 +68,30 @@ class GameScene: SKScene {
             x: CGFloat(column)*TileWidth + TileWidth/2,
             y: CGFloat(row)*TileHeight + TileHeight/2)
     }
+
+    func convertPoint(point: CGPoint) -> (success: Bool, column: Int, row: Int) {
+        if point.x >= 0 && point.x < CGFloat(NumColumns)*TileWidth &&
+            point.y >= 0 && point.y < CGFloat(NumRows)*TileHeight {
+                return (true, Int(point.x / TileWidth), Int(point.y / TileHeight))
+        } else {
+            return (false, 0, 0)  // invalid location
+        }
+    }
+
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        // 1
+        let touch = touches.first as! UITouch
+        let location = touch.locationInNode(cookiesLayer)
+        // 2
+        let (success, column, row) = convertPoint(location)
+        if success {
+            // 3
+            if let cookie = level.cookieAtColumn(column, row: row) {
+                // 4
+                swipeFromColumn = column
+                swipeFromRow = row
+            }
+        }
+    }
+
 }
