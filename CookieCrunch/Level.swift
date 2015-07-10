@@ -23,16 +23,18 @@ class Level {
         // 1
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
+                if tiles[column, row] != nil {
 
-                // 2
-                var cookieType = CookieType.random()
+                    // 2
+                    var cookieType = CookieType.random()
 
-                // 3
-                let cookie = Cookie(column: column, row: row, cookieType: cookieType)
-                cookies[column, row] = cookie
+                    // 3
+                    let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    cookies[column, row] = cookie
 
-                // 4
-                set.insert(cookie)
+                    // 4
+                    set.insert(cookie)
+                }
             }
         }
         return set
