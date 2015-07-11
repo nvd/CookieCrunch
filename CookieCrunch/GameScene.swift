@@ -189,4 +189,9 @@ class GameScene: SKScene {
         }
     }
 
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.3),
+            SKAction.removeFromParent()]))
+    }
 }
