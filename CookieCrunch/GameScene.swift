@@ -125,4 +125,20 @@ class GameScene: SKScene {
             }
         }
     }
+
+    func trySwapHorizontal(horzDelta: Int, vertical vertDelta: Int) {
+        // 1
+        let toColumn = swipeFromColumn! + horzDelta
+        let toRow = swipeFromRow! + vertDelta
+        // 2
+        if toColumn < 0 || toColumn >= NumColumns { return }
+        if toRow < 0 || toRow >= NumRows { return }
+        // 3
+        if let toCookie = level.cookieAtColumn(toColumn, row: toRow) {
+            if let fromCookie = level.cookieAtColumn(swipeFromColumn!, row: swipeFromRow!) {
+                // 4
+                println("*** swapping \(fromCookie) with \(toCookie)")
+            }
+        }
+    }
 }
