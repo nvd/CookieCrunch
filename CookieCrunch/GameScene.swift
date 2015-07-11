@@ -11,10 +11,9 @@ class GameScene: SKScene {
     let tilesLayer = SKNode()
     let cookiesLayer = SKNode()
 
-    private
-    var swipeFromColumn: Int?
-    var swipeFromRow: Int?
-    var selectionSprite = SKSpriteNode()
+    private var swipeFromColumn: Int?
+    private var swipeFromRow: Int?
+    private var selectionSprite = SKSpriteNode()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
