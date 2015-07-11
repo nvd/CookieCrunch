@@ -94,4 +94,35 @@ class GameScene: SKScene {
         }
     }
 
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        // 1
+        if swipeFromColumn == nil { return }
+
+        // 2
+        let touch = touches.first as! UITouch
+        let location = touch.locationInNode(cookiesLayer)
+
+        let (success, column, row) = convertPoint(location)
+        if success {
+
+            // 3
+            var horzDelta = 0, vertDelta = 0
+            if column < swipeFromColumn! {          // swipe left
+                horzDelta = -1
+            } else if column > swipeFromColumn! {   // swipe right
+                horzDelta = 1
+            } else if row < swipeFromRow! {         // swipe down
+                vertDelta = -1
+            } else if row > swipeFromRow! {         // swipe up
+                vertDelta = 1
+            }
+
+            // 4
+            if horzDelta != 0 || vertDelta != 0 {
+                trySwapHorizontal(horzDelta, vertical: vertDelta)
+                // 5
+                swipeFromColumn = nil
+            }
+        }
+    }
 }
