@@ -14,6 +14,7 @@ class GameScene: SKScene {
     private
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
+    var selectionSprite = SKSpriteNode()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -88,6 +89,7 @@ class GameScene: SKScene {
         if success {
             // 3
             if let cookie = level.cookieAtColumn(column, row: row) {
+                showSelectionIndicatorForCookie(cookie)
                 // 4
                 swipeFromColumn = column
                 swipeFromRow = row
@@ -121,6 +123,7 @@ class GameScene: SKScene {
             // 4
             if horzDelta != 0 || vertDelta != 0 {
                 trySwapHorizontal(horzDelta, vertical: vertDelta)
+                hideSelectionIndicator()
                 // 5
                 swipeFromColumn = nil
             }
@@ -147,6 +150,9 @@ class GameScene: SKScene {
     }
 
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
         swipeFromColumn = nil
         swipeFromRow = nil
     }
@@ -171,5 +177,26 @@ class GameScene: SKScene {
         let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
+    }
+
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = texture.size()
+            selectionSprite.runAction(SKAction.setTexture(texture))
+
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.4),
+            SKAction.removeFromParent()]))
     }
 }
