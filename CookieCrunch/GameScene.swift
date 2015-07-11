@@ -89,6 +89,7 @@ class GameScene: SKScene {
         if success {
             // 3
             if let cookie = level.cookieAtColumn(column, row: row) {
+                showSelectionIndicatorForCookie(cookie)
                 // 4
                 swipeFromColumn = column
                 swipeFromRow = row
@@ -122,6 +123,7 @@ class GameScene: SKScene {
             // 4
             if horzDelta != 0 || vertDelta != 0 {
                 trySwapHorizontal(horzDelta, vertical: vertDelta)
+                hideSelectionIndicator()
                 // 5
                 swipeFromColumn = nil
             }
@@ -148,6 +150,9 @@ class GameScene: SKScene {
     }
 
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
         swipeFromColumn = nil
         swipeFromRow = nil
     }
@@ -191,7 +196,7 @@ class GameScene: SKScene {
 
     func hideSelectionIndicator() {
         selectionSprite.runAction(SKAction.sequence([
-            SKAction.fadeOutWithDuration(0.3),
+            SKAction.fadeOutWithDuration(0.4),
             SKAction.removeFromParent()]))
     }
 }
