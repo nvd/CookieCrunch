@@ -14,6 +14,7 @@ class GameScene: SKScene {
     private
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
+    var selectionSprite = SKSpriteNode()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -172,4 +173,20 @@ class GameScene: SKScene {
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
     }
+
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = texture.size()
+            selectionSprite.runAction(SKAction.setTexture(texture))
+
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+
 }
