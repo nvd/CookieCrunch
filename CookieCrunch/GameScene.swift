@@ -141,4 +141,13 @@ class GameScene: SKScene {
             }
         }
     }
+
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        swipeFromColumn = nil
+        swipeFromRow = nil
+    }
+
+    override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent) {
+        touchesEnded(touches, withEvent: event)
+    }
 }
