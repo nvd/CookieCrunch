@@ -169,4 +169,34 @@ class Level {
     func isPossibleSwap(swap: Swap) -> Bool {
         return possibleSwaps.contains(swap)
     }
+
+    private func detectHorizontalMatches() -> Set<Chain> {
+        // 1
+        var set = Set<Chain>()
+        // 2
+        for row in 0..<NumRows {
+            for var column = 0; column < NumColumns - 2 ; {
+                // 3
+                if let cookie = cookies[column, row] {
+                    let matchType = cookie.cookieType
+                    // 4
+                    if cookies[column + 1, row]?.cookieType == matchType &&
+                        cookies[column + 2, row]?.cookieType == matchType {
+                            // 5
+                            let chain = Chain(chainType: .Horizontal)
+                            do {
+                                chain.addCookie(cookies[column, row]!)
+                                ++column
+                            } while column < NumColumns && cookies[column, row]?.cookieType == matchType
+
+                            set.insert(chain)
+                            continue
+                    }
+                }
+                // 6
+                ++column
+            }
+        }
+        return set
+    }
 }
