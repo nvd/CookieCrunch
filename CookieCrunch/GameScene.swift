@@ -225,4 +225,21 @@ class GameScene: SKScene {
             SKAction.fadeOutWithDuration(0.4),
             SKAction.removeFromParent()]))
     }
+
+    func animateMatchedCookies(chains: Set<Chain>, completion: () -> ()) {
+        for chain in chains {
+            for cookie in chain.cookies {
+                if let sprite = cookie.sprite {
+                    if sprite.actionForKey("removing") == nil {
+                        let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
+                        scaleAction.timingMode = .EaseOut
+                        sprite.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]),
+                            withKey:"removing")
+                    }
+                }
+            }
+        }
+        runAction(matchSound)
+        runAction(SKAction.waitForDuration(0.3), completion: completion)
+    }
 }
