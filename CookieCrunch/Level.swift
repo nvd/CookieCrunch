@@ -96,4 +96,22 @@ class Level {
         swap.cookieA.column = columnB
         swap.cookieA.row = rowB
     }
+
+    private func hasChainAtColumn(column: Int, row: Int) -> Bool {
+        let cookieType = cookies[column, row]!.cookieType
+
+        var horzLength = 1
+        for var i = column - 1; i >= 0 && cookies[i, row]?.cookieType == cookieType;
+            --i, ++horzLength { }
+        for var i = column + 1; i < NumColumns && cookies[i, row]?.cookieType == cookieType;
+            ++i, ++horzLength { }
+        if horzLength >= 3 { return true }
+
+        var vertLength = 1
+        for var i = row - 1; i >= 0 && cookies[column, i]?.cookieType == cookieType;
+            --i, ++vertLength { }
+        for var i = row + 1; i < NumRows && cookies[column, i]?.cookieType == cookieType;
+            ++i, ++vertLength { }
+        return vertLength >= 3
+    }
 }
