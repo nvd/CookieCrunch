@@ -15,6 +15,12 @@ class GameScene: SKScene {
     private var swipeFromRow: Int?
     private var selectionSprite = SKSpriteNode()
 
+    let swapSound = SKAction.playSoundFileNamed("Chomp.wav", waitForCompletion: false)
+    let invalidSwapSound = SKAction.playSoundFileNamed("Error.wav", waitForCompletion: false)
+    let matchSound = SKAction.playSoundFileNamed("Ka-Ching.wav", waitForCompletion: false)
+    let fallingCookieSound = SKAction.playSoundFileNamed("Scrape.wav", waitForCompletion: false)
+    let addCookieSound = SKAction.playSoundFileNamed("Drip.wav", waitForCompletion: false)
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
