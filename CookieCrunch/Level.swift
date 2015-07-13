@@ -226,4 +226,14 @@ class Level {
         }
         return set
     }
+
+    func removeMatches() -> Set<Chain> {
+        let horizontalChains = detectHorizontalMatches()
+        let verticalChains = detectVerticalMatches()
+
+        println("Horizontal matches: \(horizontalChains)")
+        println("Vertical matches: \(verticalChains)")
+
+        return horizontalChains.union(verticalChains)
+    }
 }
