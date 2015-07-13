@@ -169,4 +169,71 @@ class Level {
     func isPossibleSwap(swap: Swap) -> Bool {
         return possibleSwaps.contains(swap)
     }
+
+    private func detectHorizontalMatches() -> Set<Chain> {
+        // 1
+        var set = Set<Chain>()
+        // 2
+        for row in 0..<NumRows {
+            for var column = 0; column < NumColumns - 2 ; {
+                // 3
+                if let cookie = cookies[column, row] {
+                    let matchType = cookie.cookieType
+                    // 4
+                    if cookies[column + 1, row]?.cookieType == matchType &&
+                        cookies[column + 2, row]?.cookieType == matchType {
+                            // 5
+                            let chain = Chain(chainType: .Horizontal)
+                            do {
+                                chain.addCookie(cookies[column, row]!)
+                                ++column
+                            } while column < NumColumns && cookies[column, row]?.cookieType == matchType
+
+                            set.insert(chain)
+                            continue
+                    }
+                }
+                // 6
+                ++column
+            }
+        }
+        return set
+    }
+
+    private func detectVerticalMatches() -> Set<Chain> {
+        var set = Set<Chain>()
+
+        for column in 0..<NumColumns {
+            for var row = 0; row < NumRows - 2; {
+                if let cookie = cookies[column, row] {
+                    let matchType = cookie.cookieType
+
+                    if cookies[column, row + 1]?.cookieType == matchType &&
+                        cookies[column, row + 2]?.cookieType == matchType {
+
+                            let chain = Chain(chainType: .Vertical)
+                            do {
+                                chain.addCookie(cookies[column, row]!)
+                                ++row
+                            } while row < NumRows && cookies[column, row]?.cookieType == matchType
+
+                            set.insert(chain)
+                            continue
+                    }
+                }
+                ++row
+            }
+        }
+        return set
+    }
+
+    func removeMatches() -> Set<Chain> {
+        let horizontalChains = detectHorizontalMatches()
+        let verticalChains = detectVerticalMatches()
+
+        println("Horizontal matches: \(horizontalChains)")
+        println("Vertical matches: \(verticalChains)")
+
+        return horizontalChains.union(verticalChains)
+    }
 }
