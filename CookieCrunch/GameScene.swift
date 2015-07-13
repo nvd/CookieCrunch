@@ -182,6 +182,7 @@ class GameScene: SKScene {
         let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
+        runAction(swapSound)
     }
 
     func animateInvalidSwap(swap: Swap, completion: () -> ()) {
@@ -201,6 +202,7 @@ class GameScene: SKScene {
 
         spriteA.runAction(SKAction.sequence([moveA, moveB]), completion: completion)
         spriteB.runAction(SKAction.sequence([moveB, moveA]))
+        runAction(invalidSwapSound)
     }
 
     func showSelectionIndicatorForCookie(cookie: Cookie) {
