@@ -114,4 +114,55 @@ class Level {
             ++i, ++vertLength { }
         return vertLength >= 3
     }
+
+    func detectPossibleSwaps() {
+        var set = Set<Swap>()
+
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if let cookie = cookies[column, row] {
+
+                    // Is it possible to swap this cookie with the one on the right?
+                    if column < NumColumns - 1 {
+                        // Have a cookie in this spot? If there is no tile, there is no cookie.
+                        if let other = cookies[column + 1, row] {
+                            // Swap them
+                            cookies[column, row] = other
+                            cookies[column + 1, row] = cookie
+
+                            // Is either cookie now part of a chain?
+                            if hasChainAtColumn(column + 1, row: row) ||
+                                hasChainAtColumn(column, row: row) {
+                                    set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+
+                            // Swap them back
+                            cookies[column, row] = cookie
+                            cookies[column + 1, row] = other
+                        }
+                    }
+
+                    if row < NumRows - 1 {
+                        if let other = cookies[column, row + 1] {
+                            cookies[column, row] = other
+                            cookies[column, row + 1] = cookie
+
+                            // Is either cookie now part of a chain?
+                            if hasChainAtColumn(column, row: row + 1) ||
+                                hasChainAtColumn(column, row: row) {
+                                    set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+
+                            // Swap them back
+                            cookies[column, row] = cookie
+                            cookies[column, row + 1] = other
+                        }
+                    }
+                }
+
+            }
+        }
+
+        possibleSwaps = set
+    }
 }
