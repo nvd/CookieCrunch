@@ -7,6 +7,8 @@ class Level {
     private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
 
+    private var possibleSwaps = Set<Swap>()
+
     func cookieAtColumn(column: Int, row: Int) -> Cookie? {
         assert(column >= 0 && column < NumColumns)
         assert(row >= 0 && row < NumRows)
@@ -14,7 +16,14 @@ class Level {
     }
 
     func shuffle() -> Set<Cookie> {
-        return createInitialCookies()
+        var set: Set<Cookie>
+        do {
+            set = createInitialCookies()
+            detectPossibleSwaps()
+            println("possible swaps: \(possibleSwaps)")
+        } while possibleSwaps.count == 0
+
+        return set
     }
 
     private func createInitialCookies() -> Set<Cookie> {
