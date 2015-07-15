@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
 
-        level = Level(filename: "Levels/Level_2")
+        level = Level(filename: "Levels/Level_3")
         scene.level = level
         scene.addTiles()
         scene.swipeHandler = handleSwipe
