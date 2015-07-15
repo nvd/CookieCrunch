@@ -5,6 +5,13 @@ class GameViewController: UIViewController {
     var scene: GameScene!
     var level: Level!
 
+    var movesLeft = 0
+    var score = 0
+
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
