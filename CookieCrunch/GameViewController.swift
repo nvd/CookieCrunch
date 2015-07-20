@@ -47,6 +47,9 @@ class GameViewController: UIViewController {
     }
 
     func beginGame() {
+        movesLeft = level.maximumMoves
+        score = 0
+        updateLabels()
         shuffle()
     }
 
@@ -89,5 +92,11 @@ class GameViewController: UIViewController {
     func beginNextTurn() {
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
+    }
+
+    func updateLabels() {
+        targetLabel.text = String(format: "%ld", level.targetScore)
+        movesLabel.text = String(format: "%ld", movesLeft)
+        scoreLabel.text = String(format: "%ld", score)
     }
 }
