@@ -42,6 +42,7 @@ class GameViewController: UIViewController {
         scene.level = level
         scene.addTiles()
         scene.swipeHandler = handleSwipe
+        gameOverPanel.hidden = true
 
         // Present the scene.
         skView.presentScene(scene)
