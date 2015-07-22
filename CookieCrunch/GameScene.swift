@@ -34,6 +34,7 @@ class GameScene: SKScene {
         addChild(background)
 
         addChild(gameLayer)
+        gameLayer.hidden = true
 
         let layerPosition = CGPoint(
             x: -TileWidth * CGFloat(NumColumns) / 2,
