@@ -55,6 +55,7 @@ class GameViewController: UIViewController {
         score = 0
         updateLabels()
         level.resetComboMultiplier()
+        scene.animateBeginGame() { }
         shuffle()
     }
 
