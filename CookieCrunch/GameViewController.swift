@@ -114,6 +114,13 @@ class GameViewController: UIViewController {
     func decrementMoves() {
         --movesLeft
         updateLabels()
+        if score >= level.targetScore {
+            gameOverPanel.image = UIImage(named: "LevelComplete")
+            showGameOver()
+        } else if movesLeft == 0 {
+            gameOverPanel.image = UIImage(named: "GameOver")
+            showGameOver()
+        }
     }
 
     func showGameOver() {
