@@ -323,4 +323,8 @@ class Level {
             ++comboMultiplier
         }
     }
+
+    func resetComboMultiplier() {
+        comboMultiplier = 1
+    }
 }
