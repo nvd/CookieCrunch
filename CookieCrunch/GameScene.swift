@@ -344,4 +344,8 @@ class GameScene: SKScene {
         action.timingMode = .EaseOut
         gameLayer.runAction(action, completion: completion)
     }
+
+    func removeAllCookieSprites() {
+        cookiesLayer.removeAllChildren()
+    }
 }
