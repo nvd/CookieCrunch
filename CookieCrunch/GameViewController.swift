@@ -123,4 +123,14 @@ class GameViewController: UIViewController {
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
         view.addGestureRecognizer(tapGestureRecognizer)
     }
+
+    func hideGameOver() {
+        view.removeGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer = nil
+
+        gameOverPanel.hidden = true
+        scene.userInteractionEnabled = true
+
+        beginGame()
+    }
 }
