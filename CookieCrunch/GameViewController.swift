@@ -12,6 +12,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
 
+    @IBOutlet weak var gameOverPanel: UIImageView!
+
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

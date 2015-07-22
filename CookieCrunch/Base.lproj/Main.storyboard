@@ -68,6 +68,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="gameOverPanel" destination="3Zq-h3-GnR" id="BXS-wg-ego"/>
                         <outlet property="movesLabel" destination="85s-LX-dCI" id="5ta-By-quo"/>
                         <outlet property="scoreLabel" destination="n1I-7w-Dbq" id="cpc-FN-BfU"/>
                         <outlet property="targetLabel" destination="JUh-Ey-EDr" id="IL5-Dr-n3i"/>
