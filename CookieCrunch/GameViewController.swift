@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
 
     @IBOutlet weak var gameOverPanel: UIImageView!
+    var tapGestureRecognizer: UITapGestureRecognizer!
 
     override func prefersStatusBarHidden() -> Bool {
         return true
