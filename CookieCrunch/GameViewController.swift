@@ -40,6 +40,7 @@ class GameViewController: UIViewController {
         // Configure the view.
         let skView = view as! SKView
         skView.multipleTouchEnabled = false
+        shuffleButton.hidden = true
 
         // Create and configure the scene.
         scene = GameScene(size: skView.bounds.size)
@@ -62,7 +63,9 @@ class GameViewController: UIViewController {
         score = 0
         updateLabels()
         level.resetComboMultiplier()
-        scene.animateBeginGame() { }
+        scene.animateBeginGame() {
+            self.shuffleButton.hidden = false
+        }
         shuffle()
     }
 
@@ -135,6 +138,7 @@ class GameViewController: UIViewController {
     func showGameOver() {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
+        shuffleButton.hidden = true
 
         scene.animateGameOver() {
             self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
