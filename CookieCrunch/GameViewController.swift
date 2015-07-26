@@ -15,6 +15,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameOverPanel: UIImageView!
     var tapGestureRecognizer: UITapGestureRecognizer!
 
+    @IBOutlet weak var shuffleButton: UIButton!
+
+    @IBAction func shuffleButtonPressed(AnyObject) {
+        shuffle()
+        decrementMoves()
+    }
+
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
