@@ -68,6 +68,33 @@ class GameScene: SKScene {
                 }
             }
         }
+        for row in 0...NumRows {
+            for column in 0...NumColumns {
+                let topLeft     = (column > 0) && (row < NumRows)
+                    && level.tileAtColumn(column - 1, row: row) != nil
+                let bottomLeft  = (column > 0) && (row > 0)
+                    && level.tileAtColumn(column - 1, row: row - 1) != nil
+                let topRight    = (column < NumColumns) && (row < NumRows)
+                    && level.tileAtColumn(column, row: row) != nil
+                let bottomRight = (column < NumColumns) && (row > 0)
+                    && level.tileAtColumn(column, row: row - 1) != nil
+
+                // The tiles are named from 0 to 15, according to the bitmask that is
+                // made by combining these four values.
+                let value = Int(topLeft) | Int(topRight) << 1 | Int(bottomLeft) << 2 | Int(bottomRight) << 3
+
+                // Values 0 (no tiles), 6 and 9 (two opposite tiles) are not drawn.
+                if value != 0 && value != 6 && value != 9 {
+                    let name = String(format: "Tile_%ld", value)
+                    let tileNode = SKSpriteNode(imageNamed: name)
+                    var point = pointForColumn(column, row: row)
+                    point.x -= TileWidth/2
+                    point.y -= TileHeight/2
+                    tileNode.position = point
+                    tilesLayer.addChild(tileNode)
+                }
+            }
+        }
     }
 
     func addSpritesForCookies(cookies: Set<Cookie>) {
