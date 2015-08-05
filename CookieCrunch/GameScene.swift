@@ -10,6 +10,8 @@ class GameScene: SKScene {
     let gameLayer = SKNode()
     let tilesLayer = SKNode()
     let cookiesLayer = SKNode()
+    let cropLayer = SKCropNode()
+    let maskLayer = SKNode()
 
     private var swipeFromColumn: Int?
     private var swipeFromRow: Int?
@@ -39,12 +41,17 @@ class GameScene: SKScene {
         let layerPosition = CGPoint(
             x: -TileWidth * CGFloat(NumColumns) / 2,
             y: -TileHeight * CGFloat(NumRows) / 2)
-        
+
         tilesLayer.position = layerPosition
         gameLayer.addChild(tilesLayer)
-        
+
+        gameLayer.addChild(cropLayer)
+
+        maskLayer.position = layerPosition
+        cropLayer.maskNode = maskLayer
+
         cookiesLayer.position = layerPosition
-        gameLayer.addChild(cookiesLayer)
+        cropLayer.addChild(cookiesLayer)
 
         swipeFromColumn = nil
         swipeFromRow = nil
@@ -55,9 +62,9 @@ class GameScene: SKScene {
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
                 if let tile = level.tileAtColumn(column, row: row) {
-                    let tileNode = SKSpriteNode(imageNamed: "Tile")
+                    let tileNode = SKSpriteNode(imageNamed: "MaskTile")
                     tileNode.position = pointForColumn(column, row: row)
-                    tilesLayer.addChild(tileNode)
+                    maskLayer.addChild(tileNode)
                 }
             }
         }
