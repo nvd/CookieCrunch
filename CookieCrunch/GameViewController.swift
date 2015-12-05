@@ -10,7 +10,7 @@ class GameViewController: UIViewController {
     var score = 0
     lazy var backgroundMusic: AVAudioPlayer = {
         let url = NSBundle.mainBundle().URLForResource("Sounds/Mining by Moonlight", withExtension: "mp3")
-        let player = AVAudioPlayer(contentsOfURL: url, error: nil)
+        let player = (try? AVAudioPlayer(contentsOfURL: url!))!
         player.numberOfLoops = -1
         return player
         }()
@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
 
     @IBOutlet weak var shuffleButton: UIButton!
 
-    @IBAction func shuffleButtonPressed(AnyObject) {
+    @IBAction func shuffleButtonPressed(_: AnyObject) {
         shuffle()
         decrementMoves()
     }
@@ -37,8 +37,8 @@ class GameViewController: UIViewController {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.AllButUpsideDown
     }
 
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
 
-        level = Level(filename: "Levels/Level_3")
+        level = Level(filename: "Levels/Level_1")
         scene.level = level
         scene.addTiles()
         scene.swipeHandler = handleSwipe

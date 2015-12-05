@@ -1,6 +1,6 @@
 import SpriteKit
 
-enum CookieType: Int, Printable {
+enum CookieType: Int, CustomStringConvertible {
     case Unknown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
 
     var spriteName: String {
@@ -28,7 +28,7 @@ enum CookieType: Int, Printable {
     }
 }
 
-class Cookie: Printable, Hashable {
+class Cookie: CustomStringConvertible, Hashable {
     var column: Int
     var row: Int
     let cookieType: CookieType

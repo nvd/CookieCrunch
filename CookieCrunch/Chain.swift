@@ -1,8 +1,8 @@
-class Chain: Hashable, Printable {
+class Chain: Hashable, CustomStringConvertible {
     var cookies = [Cookie]()
     var score = 0
 
-    enum ChainType: Printable {
+    enum ChainType: CustomStringConvertible {
         case Horizontal
         case Vertical
 
@@ -41,7 +41,7 @@ class Chain: Hashable, Printable {
     }
 
     var hashValue: Int {
-        return reduce(cookies, 0) { $0.hashValue ^ $1.hashValue }
+        return cookies.reduce(0) { $0.hashValue ^ $1.hashValue }
     }
 }
 
